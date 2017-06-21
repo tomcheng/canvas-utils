@@ -1,0 +1,31 @@
+{
+  "name": "@thomascheng/canvas-utils",
+  "version": "0.0.2",
+  "description": "Some objects to help rendering to canvas",
+  "main": "lib/index.js",
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "build": "npm run clean && webpack -p",
+    "build:lib": "babel src --out-dir lib",
+    "test": "jest"
+  },
+  "keywords": [
+    "canvas"
+  ],
+  "author": "Thomas Cheng",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tomcheng/canvas-utils.git"
+  },
+  "devDependencies": {
+    "babel-cli": "6.24.1",
+    "babel-core": "6.24.1",
+    "babel-loader": "7.0.0",
+    "babel-plugin-transform-class-properties": "6.24.1",
+    "babel-preset-env": "1.5.1",
+    "jest": "20.0.4",
+    "rimraf": "2.6.1",
+    "webpack": "2.6.1"
+  }
+}
