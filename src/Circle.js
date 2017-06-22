@@ -4,7 +4,7 @@ class Circle {
     this.y = y || 0;
     this.radius = radius || 0;
     this.fill = fill || "#000";
-    this.opacity = opacity || 1;
+    this.opacity = opacity !== undefined ? opacity : 1;
   }
 
   render = context => {
