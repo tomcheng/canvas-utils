@@ -1,11 +1,12 @@
 {
   "name": "@thomascheng/canvas-utils",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Some objects to help rendering to canvas",
   "main": "lib/index.js",
   "scripts": {
     "build": "rimraf ./dist && webpack -p",
     "build:lib": "rimraf ./lib && babel src --out-dir lib",
+    "prepublish": "npm run build && npm run build:lib",
     "test": "jest"
   },
   "keywords": [
