@@ -12,11 +12,7 @@
 <canvas id="root"></canvas>
 <script>
   var rootEl = document.getElementById("root");
-  var canvas = new canvasUtils.Canvas({
-    domNode: rootEl,
-    width: window.innerWidth,
-    height: window.innerHeight
-  });
+  var canvas = new canvasUtils.Canvas(rootEl);
   var square = new canvasUtils.Rectangle({
     x: 100,
     y: 100,
@@ -26,6 +22,10 @@
   });
   canvas.add(square);
   canvas.render();
+  window.addEventListener("resize", function () {
+    canvas.resize();
+    canvas.render();
+  });
 </script>
 </body>
 </html>

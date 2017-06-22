@@ -1,15 +1,15 @@
 class Canvas {
-  constructor({ domNode, width, height }) {
+  constructor(domNode) {
     this.canvas = domNode;
     this.context = this.canvas.getContext("2d");
-    this.canvas.width = width;
-    this.canvas.height = height;
+    this.canvas.width = domNode.offsetWidth;
+    this.canvas.height = domNode.offsetHeight;
     this.objects = [];
   }
 
-  setSize = ({ width, height }) => {
-    this.canvas.width = width;
-    this.canvas.height = height;
+  resize = () => {
+    this.canvas.width = this.canvas.offsetWidth;
+    this.canvas.height = this.canvas.offsetHeight;
   };
 
   add = object => {
