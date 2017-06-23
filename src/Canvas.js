@@ -12,10 +12,8 @@ class Canvas {
       const y = pageY - elTop;
 
       this.objects.forEach(object => {
-        if (object.callbacks.click && object.isHit({ x, y })) {
-          object.callbacks.click.forEach(callback => {
-            callback();
-          });
+        if (object.onClick && object.isHit && object.isHit({ x, y })) {
+          object.onClick({ x, y });
         }
       });
     });

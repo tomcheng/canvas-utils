@@ -1,14 +1,11 @@
-import Shape from "./Shape";
-
-class Rectangle extends Shape {
-  constructor({ width, height, x, y, fill }) {
-    super();
-
+class Rectangle {
+  constructor({ width, height, x, y, fill, onClick }) {
     this.x = x || 0;
     this.y = y || 0;
     this.width = width || 0;
     this.height = height || 0;
     this.fill = fill || "#000";
+    this.onClick = onClick;
   }
 
   isHit = ({ x, y }) => {
