@@ -1,28 +1,29 @@
-class Circle {
-  constructor({ x, y, radius, fill, opacity, onClick }) {
+import Shape from "./Shape";
+
+class Circle extends Shape {
+  constructor(props) {
+    super(props);
+
+    const { x, y, radius } = props;
+
     this.x = x || 0;
     this.y = y || 0;
     this.radius = radius || 0;
-    this.fill = fill || "#000";
-    this.opacity = opacity !== undefined ? opacity : 1;
-    this.onClick = onClick;
   }
 
-  isHit = ({ x, y }) => {
+  isHit({ x, y }) {
     const dx = x - this.x;
     const dy = y - this.y;
 
     return Math.sqrt(dx * dx + dy * dy) <= this.radius;
-  };
+  }
 
-  render = context => {
+  render(context) {
     context.beginPath();
-    context.globalAlpha = this.opacity;
     context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
-    context.fillStyle = this.fill;
-    context.fill();
-    context.globalAlpha = 1;
-  };
+
+    super.renderStrokeAndFill(context);
+  }
 }
 
 export default Circle;

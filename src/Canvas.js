@@ -19,26 +19,25 @@ class Canvas {
     });
   }
 
-  resize = () => {
+  resize() {
     this.canvas.width = this.canvas.offsetWidth;
     this.canvas.height = this.canvas.offsetHeight;
-  };
+  }
 
-  add = object => {
+  add(object) {
     this.objects.push(object);
-  };
+  }
 
-  remove = object => {
+  remove(object) {
     this.objects = this.objects.filter(o => o !== object);
-  };
+  }
 
-  render = () => {
+  render() {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.objects.forEach(object => {
       object.render(this.context);
     });
-  };
-
+  }
 }
 
 export default Canvas;

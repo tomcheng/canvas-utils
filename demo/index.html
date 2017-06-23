@@ -13,28 +13,64 @@
 <script>
   var rootEl = document.getElementById("root");
   var canvas = new canvasUtils.Canvas(rootEl);
-  var square = new canvasUtils.Rectangle({
-    x: 100,
-    y: 100,
-    width: 100,
-    height: 100,
+  var shapes = [];
+
+  shapes.push(new canvasUtils.Rectangle({
+    x: 40,
+    y: 40,
+    width: 40,
+    height: 40,
     fill: "red",
     onClick: function () {
-      console.log("Square clicked");
+      alert("Red square clicked");
     }
-  });
-  var circle = new canvasUtils.Circle({
-    x: 300,
-    y: 150,
-    radius: 50,
+  }));
+  shapes.push(new canvasUtils.Circle({
+    x: 120,
+    y: 60,
+    radius: 20,
     fill: "blue",
     onClick: function () {
-      console.log("Circle clicked");
+      alert("Blue circle clicked");
     }
+  }));
+  shapes.push(new canvasUtils.Circle({
+    x: 180,
+    y: 60,
+    radius: 20,
+    stroke: "red",
+    strokeWidth: 1
+  }));
+  shapes.push(new canvasUtils.Rectangle({
+    x: 220,
+    y: 40,
+    width: 40,
+    height: 40,
+    stroke: "blue",
+    strokeWidth: 1
+  }));
+  shapes.push(new canvasUtils.Rectangle({
+    x: 280,
+    y: 40,
+    width: 40,
+    height: 40,
+    fill: "red",
+    opacity: 0.5
+  }));
+  shapes.push(new canvasUtils.Circle({
+    x: 360,
+    y: 60,
+    radius: 20,
+    fill: "blue",
+    opacity: 0.5
+  }));
+
+  shapes.forEach(function (shape) {
+    canvas.add(shape);
   });
-  canvas.add(square);
-  canvas.add(circle);
+
   canvas.render();
+
   window.addEventListener("resize", function () {
     canvas.resize();
     canvas.render();
