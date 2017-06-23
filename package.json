@@ -1,6 +1,6 @@
 {
   "name": "@thomascheng/canvas-utils",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Some objects to help rendering to canvas",
   "main": "lib/index.js",
   "scripts": {
