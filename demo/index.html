@@ -20,7 +20,20 @@
     height: 100,
     fill: "red"
   });
+  var circle = new canvasUtils.Circle({
+    x: 300,
+    y: 150,
+    radius: 50,
+    fill: "blue"
+  });
+  square.addEventListener("click", function () {
+    console.log("Square clicked");
+  });
+  circle.addEventListener("click", function () {
+    console.log("Circle clicked");
+  });
   canvas.add(square);
+  canvas.add(circle);
   canvas.render();
   window.addEventListener("resize", function () {
     canvas.resize();

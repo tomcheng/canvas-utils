@@ -5,6 +5,20 @@ class Canvas {
     this.canvas.width = domNode.offsetWidth;
     this.canvas.height = domNode.offsetHeight;
     this.objects = [];
+    this.canvas.addEventListener("click", evt => {
+      const { top: elTop, left: elLeft } = evt.target.getBoundingClientRect();
+      const { pageX, pageY } = evt;
+      const x = pageX - elLeft;
+      const y = pageY - elTop;
+
+      this.objects.forEach(object => {
+        if (object.callbacks.click && object.isHit({ x, y })) {
+          object.callbacks.click.forEach(callback => {
+            callback();
+          });
+        }
+      });
+    });
   }
 
   resize = () => {
